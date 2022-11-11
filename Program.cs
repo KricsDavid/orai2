@@ -33,8 +33,13 @@ namespace ConsoleApp83
             Megjelenit(tenger);
 
             //1) Hány sziget van a tengeren?
+
+            
+
             //2) Hány sziget van a tenger szélén?
+
             //3) Van-e olyan sziget, ami mellett közvetlenül másik sziget is van?
+
         }
 
         static void Megjelenit(char[,] terkep)
@@ -48,7 +53,40 @@ namespace ConsoleApp83
                 }
                 Console.WriteLine();
 
+
+
             }
+            int szigetSzam = 0;
+            for (int sorIndex = 0; sorIndex < terkep.GetLength(0); sorIndex++)
+            {
+                
+                for (int oszlopIndex = 0; oszlopIndex < terkep.GetLength(1); oszlopIndex++)
+                {
+                    if (terkep[sorIndex,oszlopIndex]=='O')
+                    {
+                        szigetSzam++;
+                    }
+                   
+                }
+                
+            }
+
+            int szigetSzelSzam = 0;
+            for (int sorIndex = 0; sorIndex < terkep.GetLength(0); sorIndex++)
+            {
+
+                for (int oszlopIndex = 0; oszlopIndex < terkep.GetLength(1); oszlopIndex++)
+                {
+                    if ( sorIndex == terkep.GetLength(0) || oszlopIndex == terkep.GetLength(1) && terkep[sorIndex, oszlopIndex] == 'O')
+                    {
+                        szigetSzelSzam++;
+                    }
+
+                }
+
+            }
+            Console.WriteLine(szigetSzelSzam);
+            Console.WriteLine(szigetSzam);
             Console.ReadKey();
         }
 
